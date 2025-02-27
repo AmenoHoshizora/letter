@@ -103,14 +103,13 @@
             }
             .anime-couple-section {
                 display: flex;
-                flex-direction: column;
-                align-items: center; /* Centers everything */
-                gap: 10px; /* Adds spacing */
-                position: relative;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
             }
             
             .anime-image {
-                width: 200px; /* Adjust size as needed */
+                width: 200px;
                 border-radius: 15px;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
                 transition: transform 0.5s ease-in-out;
@@ -134,20 +133,20 @@
                 transform: rotate(10deg);
             }
             
-            .image-heart-wrapper {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: relative;
-            }
-            
             .heart-icon {
-                font-size: 30px;
+                font-size: 24px;
                 color: red;
                 position: absolute;
-                top: 50%; 
-                transform: translateY(-50%);
-                animation: heartbeat 1s infinite ease-in-out;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .image-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .anime-text {
@@ -360,9 +359,11 @@
     </div>
 
     <div class="anime-couple-section">
-        <div class="image-heart-wrapper">
+        <div class="image-wrapper">
             <img src="suneo.png" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
-            <div class="heart-icon">❤️</div>
+        </div>
+        <div class="heart-icon">❤️</div>
+        <div class="image-wrapper">
             <img src="josee.png" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
         </div>
     </div>
@@ -370,9 +371,11 @@
     <p class="anime-text" data-aos="fade-up">I'll be the Tsuneo to your Josee.</p>
 
     <div class="anime-couple-section">
-        <div class="image-heart-wrapper">
+        <div class="image-wrapper">
             <img src="taki.png" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
-            <div class="heart-icon">❤️</div>
+        </div>
+        <div class="heart-icon">❤️</div>
+        <div class="image-wrapper">
             <img src="mitsuha.png" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">  
         </div>
     </div>
@@ -380,33 +383,38 @@
     <p class="anime-text" data-aos="fade-up">I'll be the Taki to your Mitsuha.</p>
 
     <div class="anime-couple-section">
-        <div class="image-heart-wrapper">
+        <div class="image-wrapper">
             <img src="hodaka.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
-            <div class="heart-icon">❤️</div>
+        </div>
+        <div class="heart-icon">❤️</div>
+        <div class="image-wrapper">
             <img src="hina.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
         </div>
-        
     </div>
-    
+
     <p class="anime-text" data-aos="fade-up">I'll be the Hodaka to your Hina.</p>
 
     <div class="anime-couple-section">
-        <div class="image-heart-wrapper">
+        <div class="image-wrapper">
             <img src="souta.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
-            <div class="heart-icon">❤️</div>
+        </div>
+        <div class="heart-icon">❤️</div>
+        <div class="image-wrapper">
             <img src="suzume.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
         </div>
     </div>
     
     <p class="anime-text" data-aos="fade-up">I'll be the Souta to your Suzume.</p>
 
-    <div class="anime-couple-section">
-        <div class="image-heart-wrapper">
-            <img src="kaoru.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="anime-couple-section">
+            <div class="image-wrapper">
+                <img src="kaoru.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+            </div>
             <div class="heart-icon">❤️</div>
-            <img src="hanashiro.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+            <div class="image-wrapper">
+                <img src="hanashiro.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+            </div>
         </div>
-    </div>
     
     <p class="anime-text" data-aos="fade-up">I'll be the Kaoru to your Hanashiro.</p><br><br><br><br>
 
