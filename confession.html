@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Special Confession</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Parisienne&family=Sacramento&family=Lovers+Quarrel&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Merriweather&family=Lora&family=Libre+Baskerville&family=Quicksand&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+            .body {
+                background-color: #ffe6f2;
+                overflow-x: hidden;
+                overflow-y: auto;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                height: 100%;
+            }
+            body {
+                background-color: #ffe6f2;
+                overflow: visible;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .header {
+                font-family: 'Dancing Script', cursive;
+                font-weight: bolder;
+                background: #ff4d6d;
+                color: white;
+                width: 100%;
+                padding: 50px 0;
+                font-size: 1.5rem;
+            }
+            .hanging-image {
+                width: 90%;
+                max-width: 600px;
+                border-radius: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                position: relative;
+                animation: swing 3s ease-in-out infinite alternate;
+                transform-origin: top center;
+            }
+            .left {
+                transform: rotate(-8deg);
+            }
+            .right {
+                transform: rotate(8deg);
+            }
+            .message {
+                font-size: 1.25rem;
+                font-family: 'Merriweather', serif;	
+                margin: 50px 0;
+                color: #ff4d6d;
+            }
+            .footer {
+                background: #ff4d6d;
+                font-size: 1.25rem;
+                font-family: 'Dancing Script', cursive;
+                font-weight: bold;
+                color: white;
+                padding: 30px;
+                margin-top: 50px;
+            }
+
+            .poem-container {
+                background: white;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 8px 15px rgba(255, 100, 150, 0.3);
+                display: inline-block;
+                max-width: 500px;
+                margin-top: 50px;
+                position: relative;
+                animation: fadeIn 2s ease-in-out;
+            }
+            .poem-container::before, .poem-container::after {
+                content: "🌸🌸";
+                font-size: 30px;
+                position: absolute;
+            }
+            .poem-container::before {
+                left: -20px;
+                top: -20px;
+            }
+            .poem-container::after {
+                right: -20px;
+                bottom: -20px;
+            }
+            .poem-text {
+                font-size: 1.1rem;
+                font-family: 'Lora', serif;
+                color: #ff4d6d;
+                line-height: 1.8;
+                opacity: 0;
+                animation: fadeInText 2s forwards 1.5s;
+            }
+            .anime-couple-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 50px 0;
+                position: relative;
+            }
+            
+            .anime-image {
+                width: 70%;
+                max-width: 250px;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transform-origin: center;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            .left {
+                transform: rotate(-10deg);
+            }
+            
+            .right {
+                transform: rotate(10deg);
+            }
+            
+            .heart {
+                font-size: 2rem;
+                color: #ff4d6d;
+                margin: 5px;
+                animation: heartbeat 1.5s infinite;
+            }
+            
+            .anime-text {
+                font-size: 1.2rem;
+                font-family: 'Playfair Display', serif;
+                color: #ff4d6d;
+                margin-top: 20px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .heart-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                top: 0;
+                left: 0;
+            }
+
+            .heart-background {
+                position: absolute;
+                color: pink;
+                font-size: 20px;
+                animation: float 5s linear infinite;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                pointer-events: none;
+                z-index: -1;
+            }
+            .heart-button {
+                width: 100px;
+                height: 100px;
+                background: url('heart.png') no-repeat center center;
+                background-size: contain; 
+                border: none;
+                cursor: pointer;
+                display: block;
+                transition: opacity 0.5s ease-in-out;
+            }
+            .center-container {
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                height: 100vh;
+                width: 100vw;
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+            }
+
+            .hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+            
+            .reveal-text {
+                font-size: 2rem;
+                font-family: 'Quicksand', sans-serif;
+                color: red;
+                text-align: center;
+                display: none;
+            }
+            
+            .show {
+                display: block;
+                animation: fadeIn 1s ease-in-out;
+            }
+            #text-container {
+                font-size: 24px;
+                color: red;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .line {
+                font-family: "Courier New", monospace;
+                font-weight: bold;
+                overflow: hidden;
+                white-space: nowrap;
+                border-right: 2px solid red;
+                width: fit-content;
+                min-height: 1em;
+            }
+            img {
+                width: 100%;
+                max-width: 500px;
+                height: auto; 
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            @keyframes float {
+                0% { transform: translateY(100vh) scale(1); opacity: 1; }
+                100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+            }
+            @keyframes swing {
+                0% { transform: rotate(-5deg); }
+                100% { transform: rotate(5deg); }
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.8); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            @keyframes fadeInText {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes heartbeat {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.2); }
+                100% { transform: scale(1); }
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        💌 A Special Message For You 💌
+    </div>
+
+    <div class="heart-container"></div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart-background");
+        
+            let left = Math.random() * 100;
+            let duration = Math.random() * 3 + 3;
+            let size = Math.random() * 20 + 10;
+        
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = `${Math.random() * 100}vh`;
+            heart.style.animationDuration = `${duration}s`;
+            heart.style.fontSize = `${size}px`;
+        
+            document.querySelector(".heart-container").appendChild(heart);
+        
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+        setInterval(() => {
+            for (let i = 0; i < 3; i++) { 
+                createHeart();
+            }
+        }, 300);
+    </script>
+
+    <div class="poem-container">
+        <p class="poem-text">
+            You are the sun that lights my day, <br>
+            For me that felt emptiness whenever you're away. <br>
+            Your contagious laugh, your precious smile, <br>
+            Make those sleepless night felt worthwhile. 💕
+        </p>
+    </div>
+
+    <div class="container my-5">
+        <div data-aos="fade-right" data-aos-duration="2000">
+            <img src="20250220135248.png" alt="Love Image 1" class="hanging-image left">
+        </div>
+        <p class="message" data-aos="fade-up" data-aos-duration="1000">All the short moment that we spent together... ❤️</p>
+
+        <div data-aos="fade-left" data-aos-duration="2000">
+            <img src="20250223002623.png" alt="Love Image 2" class="hanging-image right">
+        </div>
+        <p class="message" data-aos="fade-up" data-aos-duration="1000">Every moment with you feels special... 💕</p>
+
+        <div data-aos="fade-right" data-aos-duration="2000">
+            <img src="20250223003025.png" alt="Love Image 3" class="hanging-image left">
+        </div>
+        <p class="message" data-aos="fade-up" data-aos-duration="1000">Even if the things we do seems pointless... 🌸</p>
+
+        <div data-aos="fade-left" data-aos-duration="2000">
+            <img src="20250223004742.png" alt="Love Image 4" class="hanging-image left">
+        </div>
+        <p class="message" data-aos="fade-up" data-aos-duration="1000">I want you to know that... 💕</p>
+
+        <div data-aos="fade-right" data-aos-duration="2000">
+            <img src="20250224004304.png" alt="Love Image 5" class="hanging-image left">
+        </div>
+        <p class="message" data-aos="fade-up" data-aos-duration="1000">It brings me endless joy... ❤️</p>
+    </div>
+
+    <div class="poem-container">
+        <p class="poem-text">
+            Your soothing voice, musics to my ears, <br>
+            For whenever it graces me, my heart flutters. <br>
+            Every time my phones light up, I'm hoping it's you, <br>
+            Your words, a spark that lightens my day. 💕
+        </p>
+    </div>
+
+    <div class="anime-couple-section">
+        <img src="suneo.png" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="heart">❤️</div>
+        <img src="josee.png" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+    </div>
+    
+    <p class="anime-text" data-aos="fade-up">I'll be the Tsuneo to your Josee.</p>
+
+    <div class="anime-couple-section">
+        <img src="taki.png" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="heart">❤️</div>
+        <img src="mitsuha.png" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+    </div>
+    
+    <p class="anime-text" data-aos="fade-up">I'll be the Taki to your Mitsuha.</p>
+
+    <div class="anime-couple-section">
+        <img src="hodaka.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="heart">❤️</div>
+        <img src="hina.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+    </div>
+    
+    <p class="anime-text" data-aos="fade-up">I'll be the Hodaka to your Hina.</p>
+
+    <div class="anime-couple-section">
+        <img src="souta.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="heart">❤️</div>
+        <img src="suzume.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+    </div>
+    
+    <p class="anime-text" data-aos="fade-up">I'll be the Souta to your Suzume.</p>
+
+    <div class="anime-couple-section">
+        <img src="kaoru.jpeg" alt="Male Anime Character" class="anime-image left" data-aos="fade-right">
+        <div class="heart">❤️</div>
+        <img src="hanashiro.jpeg" alt="Female Anime Character" class="anime-image right" data-aos="fade-left">
+    </div>
+    
+    <p class="anime-text" data-aos="fade-up">I'll be the Kaoru to your Hanashiro.</p><br><br><br><br>
+
+    <script>
+        function typeText(line, text, speed, callback) {
+            let index = 0;
+            function type() {
+                if (index < text.length) {
+                    line.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(callback, 800);
+                }
+            }
+            type();
+        }
+        
+        function startTyping() {
+            const lines = document.querySelectorAll(".line");
+            let i = 0;
+        
+            function nextLine() {
+                if (i < lines.length) {
+                    typeText(lines[i], lines[i].getAttribute("data-text"), 50, nextLine);
+                    i++;
+                }
+            }
+        
+            nextLine();
+        }
+        
+        document.addEventListener("DOMContentLoaded", startTyping);
+    </script>
+
+    <div id="text-container">
+        <span class="line" data-text="I've been meaning to tell you something..."></span>
+        <span class="line" data-text="Click the heart to reveal my secret 💖"></span>
+    </div>
+
+    <div class="center-container">
+        <button class="heart-button" id="heartBtn"></button>
+        <p class="reveal-text" id="message">❤️Will you be my girlfriend???❤️</p>
+    </div>
+
+    <script>
+        document.getElementById("heartBtn").addEventListener("click", function() {
+            this.style.opacity = "0";
+            setTimeout(() => {
+                this.style.display = "none";
+                document.getElementById("message").style.display = "block"; 
+            }, 500);
+        });
+    </script>
+
+    <div class="footer">
+        💖 For you the one that I want 💖
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
